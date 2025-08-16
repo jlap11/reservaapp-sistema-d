@@ -7,13 +7,14 @@ const projectRoot = new URL('./', import.meta.url).pathname
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  base: '/',
+  plugins: [react(), tailwindcss()],
   resolve: {
-    alias: {
-      '@': `${projectRoot}src`
-    }
+    alias: { '@': `${projectRoot}src` }
   },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
+  }
 });
